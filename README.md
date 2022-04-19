@@ -26,7 +26,7 @@ Not required but desireable:
 - [x] Implement a DU to handle **D**elete and **U**pdate users persisting them into **Local Storage**.
 - [x] Design System improvements
 - [x] Implement TS
-- [ ] Deploy the challenge (Heroku, AWS)
+- [x] Deploy the challenge (Heroku, AWS)
 
 ---
 

@@ -5,15 +5,13 @@ import { TableComponent } from "../../../shared/Table";
 import { DeleteUser, FetchUser } from "../list-actions";
 import {
   onDeleteUser,
-  onDeleteUserError,
   onFetchUsers,
-  onFetchUsersError,
 } from "../list-event";
 import "../_user-list.scss";
 import "../../components.scss";
 import { UserData } from "../../../shared/types";
 import { UserDialog } from "../../user-form/components/UserDialog";
-import { onSendForm, onSendFormError, onUpdateForm, onUpdateFormError } from "../../user-form/form-event";
+import { onSendForm, onUpdateForm } from "../../user-form/form-event";
 
 const headers = ["Name", "Email", "Phone Number", "Country"];
 
@@ -45,19 +43,6 @@ const UserList = () => {
     });
   });
 
-  useSubscription(onSendFormError, (error) => {
-    console.log(error);
-    // toast.error(error, {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
-  });
-
   useSubscription(onUpdateForm, (state) => {
     FetchUser();
     toast.success(state, {
@@ -71,34 +56,8 @@ const UserList = () => {
     });
   });
 
-  useSubscription(onUpdateFormError, (error) => {
-    console.log(error);
-    // toast.error(error, {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
-  });
-
   useSubscription(onFetchUsers, (state) => {
     setDataTable(state || []);
-  });
-
-  useSubscription(onFetchUsersError, (error) => {
-    console.log(error);
-    // toast.error(error, {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
   });
 
   useSubscription(onDeleteUser, (state) => {
@@ -112,19 +71,6 @@ const UserList = () => {
       draggable: true,
       progress: undefined,
     });
-  });
-
-  useSubscription(onDeleteUserError, (error) => {
-    console.log(error);
-    // toast.error(error, {
-    //   position: "top-right",
-    //   autoClose: 5000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    // });
   });
 
   const handleClick = (type: string, data: UserData) => {
