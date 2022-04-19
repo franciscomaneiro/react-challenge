@@ -28,6 +28,7 @@ Not required but desireable:
 - [x] Implement TS
 - [x] Deploy the challenge (Heroku, AWS)
 
+  (Heroku-app)[https://react-challenge-cliengo.herokuapp.com/]
 ---
 
 ## Available Scripts
