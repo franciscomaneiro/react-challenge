@@ -16,15 +16,24 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  tableHeadStyle: {
+    backgroundColor: "#f5f5f5",
+  },
 });
 
-export const TableComponent = ({ rows, header, handleClick }) => {
+export type TableProps = {
+  rows: any[];
+  header: string[];
+  handleClick: (type: string, data: any) => void;
+};
+
+export const TableComponent: React.FC<TableProps> = ({ rows, header, handleClick }) => {
   const classes = useStyles();
 
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
-        <TableHead>
+        <TableHead className={classes.tableHeadStyle}>
           <TableRow>
             {!!header &&
               header.map((headers) => (

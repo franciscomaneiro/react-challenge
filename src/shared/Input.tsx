@@ -1,49 +1,60 @@
 import React from "react";
 
-export const InputText = ({ placeholder, name, register, defaultValue }) => {
+export type InputProps = {
+  placeholder?: string;
+  name?: string;
+  defaultValue?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const InputText: React.FC<InputProps> = ({ value, onChange, placeholder, name, defaultValue }) => {
   return (
     <>
       <label htmlFor="" className="label">
         {placeholder}
       </label>
       <input
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
         name={name}
         type="text"
         defaultValue={defaultValue}
-        {...register}
       />
     </>
   );
 };
-export const InputEmail = ({ placeholder, name, register, defaultValue }) => {
+export const InputEmail: React.FC<InputProps> = ({ value, onChange, placeholder, name, defaultValue }) => {
   return (
     <>
       <label htmlFor="" className="label">
         {placeholder}
       </label>
       <input
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
         name={name}
         type="email"
         defaultValue={defaultValue}
-        {...register}
       />
     </>
   );
 };
-export const InputNumber = ({ placeholder, name, register, defaultValue }) => {
+export const InputNumber: React.FC<InputProps> = ({ value, onChange, placeholder, name, defaultValue }) => {
   return (
     <>
       <label htmlFor="" className="label">
         {placeholder}
       </label>
       <input
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
         name={name}
         type="number"
         defaultValue={defaultValue}
-        {...register}
       />
     </>
   );

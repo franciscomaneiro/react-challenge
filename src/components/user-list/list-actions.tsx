@@ -1,4 +1,5 @@
 import { createAction } from "@cobuildlab/react-simple-state";
+import { UserData } from "../../shared/types";
 import {
   onDeleteUser,
   onDeleteUserError,
@@ -13,7 +14,7 @@ export const DeleteUser = createAction(
     let response;
     try {
       const lastStorage = localStorage.getItem("users");
-      const lastUsers = JSON.parse(lastStorage);
+      const lastUsers: UserData[] = JSON.parse(lastStorage as string);
       const storageNew = lastUsers.filter((value) => { return value.id !== data.id});
       localStorage.setItem('users',JSON.stringify(storageNew));
       response = "Success, you have a delete User!";
@@ -31,7 +32,7 @@ export const FetchUser = createAction(
   async () => {
     let response;
     try {
-      response = JSON.parse(localStorage.getItem("users"));
+      response = JSON.parse(localStorage.getItem("users") as string);
     } catch (error) {
       return "Fail at fetch users";
     }

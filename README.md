@@ -9,22 +9,24 @@ The project is set up with a basic architecture so you can focus into the most i
 
 ## What we expect on this challenge:
 - Features:
-  - [X] Transcribe all components, than you find, from classes to functional in the Components folder.
-  - [X] Implement a CR to handle **C**reate and **R**ead users persisting them into **Local Storage**.
-  - [X] We wish you to identify component issues that are not well designed, and improve their reusability
+  - [x] Transcribe all components, than you find, from classes to functional in the Components folder.
+  - [x] Implement a CR to handle **C**reate and **R**ead users persisting them into **Local Storage**.
+  - [x] We wish you to identify component issues that are not well designed, and improve their reusability
 
 The CRUD have to follow these requirements:
-- Must persist data with refresh (Local storage as mentioned above).
-- Apply a State manager to handle the basic features (Mobx, Redux, Reflux, ContextAPI - Where you feel confortable, we wish to understand how you structure your logic)
-- Validate and show input errors to prevent from submitting 
+- [x] Must persist data with refresh (Local storage as mentioned above).
+- [x] Apply a State manager to handle the basic features (Mobx, Redux, Reflux, ContextAPI - Where you feel confortable, we wish to understand how you structure your logic)
+- [x] Validate and show input errors to prevent form submitting 
 
 You can add any library into the project, but we wish to evaluate how you create your own components
 
 Not required but desireable:
-- Jest knowledge, fix component errors.
-- Any performance improvement, avoid multiple renders.
-- Implement a DU to handle **D**elete and **U**pdate users persisting them into **Local Storage**.
-- Design System improvements
+- [x] Jest knowledge, fix component errors.
+- [x] Any performance improvement, avoid multiple renders.
+- [x] Implement a DU to handle **D**elete and **U**pdate users persisting them into **Local Storage**.
+- [x] Design System improvements
+- [x] Implement TS
+- [ ] Deploy the challenge (Heroku, AWS)
 
 ---
 

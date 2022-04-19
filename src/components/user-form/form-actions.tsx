@@ -5,22 +5,23 @@ import {
   onUpdateForm,
   onUpdateFormError,
 } from "./form-event";
+import { UserData } from "../../shared/types";
 
 export const sendForm = createAction(
   onSendForm,
   onSendFormError,
-  async (data) => {
+  async (data: UserData) => {
     let response;
     try {
       const lastStorage = localStorage.getItem("users");
-      const lastUsers = JSON.parse(lastStorage);
+      const lastUsers: UserData[] = JSON.parse(lastStorage as string);
       if (lastUsers?.length > 0) {
-        data["id"] = lastUsers.length + 1;
+        data["id"] = String(lastUsers.length + 1);
         let newUser = [...lastUsers, data];
         localStorage.setItem("users", JSON.stringify(newUser));
         return (response = "Success, you have a New User!");
       }
-      data["id"] = 1;
+      data["id"] = String(1);
       localStorage.setItem("users", JSON.stringify([data]));
       response = "Success, you have a New User!";
     } catch (error) {
@@ -34,11 +35,11 @@ export const sendForm = createAction(
 export const updateForm = createAction(
   onUpdateForm,
   onUpdateFormError,
-  async (data) => {
+  async (data: UserData) => {
     let response;
     try {
       const storage = localStorage.getItem("users");
-      const users = JSON.parse(storage);
+      const users: UserData[] = JSON.parse(storage as string);
       const usersFilter = users.filter((value) => {
         return value.id !== data.id;
       });
